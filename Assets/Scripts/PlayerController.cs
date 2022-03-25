@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
         _targetPosition.y = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;
 
         transform.Translate(_targetPosition);
-
-        if (Input.GetKeyDown(KeyCode.E))
-            transform.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.identity;
     }
 }
