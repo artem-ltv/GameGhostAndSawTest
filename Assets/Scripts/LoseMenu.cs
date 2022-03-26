@@ -6,8 +6,6 @@ public class LoseMenu : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _losePanel;
-    [SerializeField] private Button _restart;
-    [SerializeField] private Button _exit;
 
     private void OnEnable()
     {
@@ -28,8 +26,8 @@ public class LoseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     
-    public void ExitGame()
+    public void GoMenu()
     {
-        Application.Quit();
+        SceneManager.LoadScene(1);
     }
 }
