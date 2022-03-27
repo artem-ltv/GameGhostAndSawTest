@@ -23,11 +23,11 @@ public class LoseMenu : MonoBehaviour
     }
 
     public void RestartLevel() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     
     public void GoMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
