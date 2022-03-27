@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoseMenu : MonoBehaviour
@@ -9,15 +8,15 @@ public class LoseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.PlayerDie += SetLosePanel;
+        _player.PlayerDie += ShowLosePanel;
     }
 
     private void OnDisable()
     {
-        _player.PlayerDie -= SetLosePanel;        
+        _player.PlayerDie -= ShowLosePanel;        
     }
 
-    private void SetLosePanel()
+    private void ShowLosePanel()
     {
         _losePanel.SetActive(true);
     }
