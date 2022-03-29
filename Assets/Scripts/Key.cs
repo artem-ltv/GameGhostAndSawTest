@@ -5,12 +5,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Key : MonoBehaviour
 {
-    public UnityAction<int> TakingKey;
+    public UnityAction TakingKey;
 
     [SerializeField] private Color _keyColor;
 
     private SpriteRenderer _spriteRenderer;
-    private int _counterKeys = 0; 
 
     void Start()
     {
@@ -22,8 +21,7 @@ public class Key : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
-            _counterKeys++;
-            TakingKey?.Invoke(_counterKeys);
+            TakingKey?.Invoke();
             gameObject.SetActive(false);
         }
     }

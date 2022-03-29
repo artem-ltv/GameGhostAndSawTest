@@ -6,6 +6,8 @@ public class KeyCounterUI : MonoBehaviour
     [SerializeField] private Text _countKey;
     [SerializeField] private Key[] _keys;
 
+    private int _counterKeys = 0;
+
     private void OnEnable()
     {
         foreach (var key in _keys)
@@ -18,8 +20,9 @@ public class KeyCounterUI : MonoBehaviour
             key.TakingKey -= ChangeCountKeyUI;
     }
 
-    private void ChangeCountKeyUI(int counterKeys)
+    private void ChangeCountKeyUI()
     {
-        _countKey.text = $"{counterKeys}/5";
+        _counterKeys++;
+        _countKey.text = $"{_counterKeys}/5";
     }
 }
