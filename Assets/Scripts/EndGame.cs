@@ -1,12 +1,18 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class EndGame : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private GameObject _winnerPanel;
 
-    private void Start()
+    public void ChekingCountKey(int count)
     {
-        _spriteRenderer.DOFade(1f, 2f);
+        if (count == 5)
+            Win();
+    }
+
+    private void Win()
+    {
+        _winnerPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

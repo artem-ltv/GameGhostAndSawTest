@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+public class HealthCounter : MonoBehaviour
 {
-    [SerializeField] private Text _playerHealth;
+    [SerializeField] private Text _playerHealthUI;
     [SerializeField] private Player _player;
 
     private void Start()
     {
-        _playerHealth.text = _player.Health.ToString();
+        _playerHealthUI.text = _player.Health.ToString();
     }
 
     private void OnEnable()
@@ -23,7 +23,9 @@ public class HealthUI : MonoBehaviour
     
     private void ChangeCountHealthUI()
     {
-        _playerHealth.text = _player.Health.ToString();
+        if (_player.Health <= 0)
+            _player.Health = 0;
+        _playerHealthUI.text = _player.Health.ToString();
     }
 
 }

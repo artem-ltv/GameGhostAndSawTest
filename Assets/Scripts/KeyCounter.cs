@@ -1,12 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class KeyCounterUI : MonoBehaviour
+[RequireComponent(typeof(EndGame))]
+public class KeyCounter : MonoBehaviour
 {
-    [SerializeField] private Text _countKey;
+    [SerializeField] private Text _countKeyUI;
     [SerializeField] private Key[] _keys;
 
+    public int CounterKey => _counterKeys;
     private int _counterKeys = 0;
+
+    private EndGame _endGame;
+
+    private void Start()
+    {
+        _endGame = GetComponent<EndGame>();
+    }
 
     private void OnEnable()
     {
@@ -23,6 +33,7 @@ public class KeyCounterUI : MonoBehaviour
     private void ChangeCountKeyUI()
     {
         _counterKeys++;
-        _countKey.text = $"{_counterKeys}/5";
+        _countKeyUI.text = $"{_counterKeys}/5";
+        _endGame.ChekingCountKey(_counterKeys);
     }
 }
