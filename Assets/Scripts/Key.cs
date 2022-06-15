@@ -8,6 +8,7 @@ public class Key : MonoBehaviour
     public UnityAction TakingKey;
 
     [SerializeField] private Color _keyColor;
+    [SerializeField] private ParticleSystem _takingKeyEffect;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -21,6 +22,7 @@ public class Key : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>())
         {
+            Instantiate(_takingKeyEffect, transform.position, Quaternion.identity);
             TakingKey?.Invoke();
             gameObject.SetActive(false);
         }

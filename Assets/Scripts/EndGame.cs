@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EndGame : MonoBehaviour
@@ -7,12 +8,13 @@ public class EndGame : MonoBehaviour
     public void ChekingCountKey(int count)
     {
         if (count == 5)
-            Win();
+             StartCoroutine(Win());
     }
 
-    private void Win()
+    private IEnumerator Win()
     {
         _winnerPanel.SetActive(true);
+        yield return new WaitForSeconds(1);
         Time.timeScale = 0f;
     }
 }

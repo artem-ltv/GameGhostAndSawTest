@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyColor: {r: 0.32785988, g: 1, b: 0, a: 1}
+  _takingKeyEffect: {fileID: 1855340746554395459, guid: 49011e57640af4346b984abcfb1cf581, type: 3}
 --- !u!70 &7750394502400630914
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

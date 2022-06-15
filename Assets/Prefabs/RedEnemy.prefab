@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 5
+  _deathEffect: {fileID: 8714244275622671898, guid: abf8d5b763621654486813c5c8af8234, type: 3}
 --- !u!50 &2853764956092467052
 Rigidbody2D:
   serializedVersion: 4

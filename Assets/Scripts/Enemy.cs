@@ -3,13 +3,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private ParticleSystem _deathEffect;
 
     public void ApplyDamage(int damage)
     {
         _health -= damage;
 
         if (_health <= 0)
-            Destroy(gameObject);
+            Die();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -20,4 +21,10 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Die()
+    {
+        Instantiate(_deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    } 
 }
