@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public event UnityAction Dying;
+
     [SerializeField] private int _health;
     [SerializeField] private ParticleSystem _deathEffect;
 
@@ -25,6 +28,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Instantiate(_deathEffect, transform.position, Quaternion.identity);
+        Dying?.Invoke();
         Destroy(gameObject);
     } 
 }

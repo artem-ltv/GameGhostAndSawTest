@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _pointSpawnBullet;
     [SerializeField] private float _offset;
+    [SerializeField] private AudioClip _shotSound;
+
+    private AudioSource _shootAudioSource;
+
+    private void Start()
+    {
+        _shootAudioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -15,6 +22,9 @@ public class Gun : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
             Instantiate(_bullet, _pointSpawnBullet.position, transform.rotation);
+            _shootAudioSource.PlayOneShot(_shotSound);
+        }
     }
 }

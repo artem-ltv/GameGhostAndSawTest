@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Key : MonoBehaviour
 {
-    public UnityAction TakingKey;
+    public event UnityAction TakingKey;
 
     [SerializeField] private Color _keyColor;
     [SerializeField] private ParticleSystem _takingKeyEffect;
