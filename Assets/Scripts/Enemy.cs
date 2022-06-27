@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Player player))
         {
             player.ApplyDamage(1);
-            Destroy(gameObject);
+            Die();
         }
     }
 

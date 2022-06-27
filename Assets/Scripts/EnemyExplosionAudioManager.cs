@@ -3,14 +3,12 @@ using UnityEngine;
 public class EnemyExplosionAudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _explosionAudioSource;
-    [SerializeField] private AudioClip _explosionSound;
-    
-    [SerializeField] private Enemy[] _enemies;
 
-    private void Start()
-    {
-        _enemies = GameObject.FindObjectsOfType<Enemy>();
-    }
+    private Enemy[] _enemies;
+
+    private void Awake() =>
+        _enemies = GameObject.FindObjectsOfType<Enemy>();    
+    
 
     private void OnEnable()
     {
@@ -25,7 +23,11 @@ public class EnemyExplosionAudioManager : MonoBehaviour
     }
      
 
-    private void OnSoundExplosion() =>
-        _explosionAudioSource.PlayOneShot(_explosionSound);
+    private void OnSoundExplosion()
+    {
+
+        Debug.Log("OnSoundExplosion");
+        _explosionAudioSource.Play();
+    }
 
 }

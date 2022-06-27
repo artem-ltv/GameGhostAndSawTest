@@ -10,10 +10,9 @@ public class Gun : MonoBehaviour
 
     private AudioSource _shootAudioSource;
 
-    private void Start()
-    {
+    private void Start() =>
         _shootAudioSource = GetComponent<AudioSource>();
-    }
+    
 
     private void Update()
     {
